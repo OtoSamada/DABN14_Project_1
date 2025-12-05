@@ -1,0 +1,242 @@
+[
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-04T15:26:30.824797",
+    "algorithm": "LinearSVC",
+    "hyperparameters": {
+      "C": 21.91412108674017
+    },
+    "results": {
+      "test_accuracy": 0.9992838874680307,
+      "test_f1": 0.999339435689346,
+      "best_cv_score": 0.999079283887468
+    },
+    "data_info": {
+      "n_train": 29325,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 2.299522876739502,
+    "inference_time_ms": 0.0006914741024957038
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-04T15:34:03.441300",
+    "algorithm": "Poly_SVC",
+    "hyperparameters": {
+      "C": 0.04241616755716325,
+      "degree": 3,
+      "coef0": 0.6900287468413446
+    },
+    "results": {
+      "test_accuracy": 0.9997953964194374,
+      "test_f1": 0.999811320754717,
+      "best_cv_score": 0.9996
+    },
+    "data_info": {
+      "n_train": 2500,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 4.024064779281616,
+    "inference_time_ms": 1.2903888163971713
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-04T15:34:03.441304",
+    "algorithm": "RBF_SVC",
+    "hyperparameters": {
+      "C": 25.325744335406885,
+      "gamma": 0.07385591955319332
+    },
+    "results": {
+      "test_accuracy": 0.9986700767263427,
+      "test_f1": 0.9987737005942836,
+      "best_cv_score": 0.9984
+    },
+    "data_info": {
+      "n_train": 2500,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 2.680377960205078,
+    "inference_time_ms": 0.8498585877052391
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-04T15:37:09.024688",
+    "algorithm": "LinearSVC",
+    "hyperparameters": {
+      "C": 19.186662014266485
+    },
+    "results": {
+      "test_accuracy": 0.9992838874680307,
+      "test_f1": 0.999339435689346,
+      "best_cv_score": 0.999079283887468
+    },
+    "data_info": {
+      "n_train": 29325,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 2.3203582763671875,
+    "inference_time_ms": 0.0007074578941683285
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-04T16:05:24.745687",
+    "algorithm": "LinearSVC",
+    "hyperparameters": {
+      "C": 7.477019499593716
+    },
+    "results": {
+      "test_accuracy": 0.9988746803069054,
+      "test_f1": 0.9989619703689724,
+      "best_cv_score": 0.998533674339301
+    },
+    "data_info": {
+      "n_train": 29325,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 2.399332284927368,
+    "inference_time_ms": 0.0006325327005470172
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-04T19:42:17.459223",
+    "algorithm": "LinearSVC",
+    "hyperparameters": {
+      "C": 6.394879181795743
+    },
+    "results": {
+      "test_accuracy": 0.998772378516624,
+      "test_f1": 0.998867710888847,
+      "best_cv_score": 0.998533674339301
+    },
+    "data_info": {
+      "n_train": 29325,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 4.4772889614105225,
+    "inference_time_ms": 0.0006568866068846546
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-04T19:42:17.459228",
+    "algorithm": "Poly_SVC",
+    "hyperparameters": {
+      "C": 0.2221042595502391,
+      "degree": 3,
+      "coef0": 3.827195071875834
+    },
+    "results": {
+      "test_accuracy": 1.0,
+      "test_f1": 1.0,
+      "best_cv_score": 1.0
+    },
+    "data_info": {
+      "n_train": 29325,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 62.49706792831421,
+    "inference_time_ms": 1.6996138449045248
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-04T19:42:17.459230",
+    "algorithm": "RBF_SVC",
+    "hyperparameters": {
+      "C": 1.3360833119867455,
+      "gamma": 0.07390542683763396
+    },
+    "results": {
+      "test_accuracy": 0.9995907928388746,
+      "test_f1": 0.9996224277893148,
+      "best_cv_score": 0.999317988064791
+    },
+    "data_info": {
+      "n_train": 29325,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 74.2551429271698,
+    "inference_time_ms": 1.9304410540004027
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-05T14:01:13.942099",
+    "algorithm": "LinearSVC",
+    "hyperparameters": {
+      "C": 6.962756578220633
+    },
+    "results": {
+      "test_accuracy": 0.9988746803069054,
+      "test_f1": 0.9989619703689724,
+      "best_cv_score": 0.998533674339301
+    },
+    "data_info": {
+      "n_train": 29325,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 4.380027770996094,
+    "inference_time_ms": 0.0006889866199344397
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-05T14:01:13.942107",
+    "algorithm": "Poly_SVC",
+    "hyperparameters": {
+      "C": 0.22236155190732657,
+      "degree": 4,
+      "coef0": 4.0590671874701325
+    },
+    "results": {
+      "test_accuracy": 1.0,
+      "test_f1": 1.0,
+      "best_cv_score": 1.0
+    },
+    "data_info": {
+      "n_train": 29325,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 65.55034804344177,
+    "inference_time_ms": 1.8195733126049163
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-05T14:01:13.942109",
+    "algorithm": "RBF_SVC",
+    "hyperparameters": {
+      "C": 2.3275996709642643,
+      "gamma": 0.045334060128042204
+    },
+    "results": {
+      "test_accuracy": 0.9995907928388746,
+      "test_f1": 0.9996225702962823,
+      "best_cv_score": 0.9995907928388746
+    },
+    "data_info": {
+      "n_train": 29325,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 51.81469011306763,
+    "inference_time_ms": 1.3067677156039281
+  }
+]
