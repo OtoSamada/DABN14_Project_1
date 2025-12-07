@@ -238,5 +238,28 @@
     "random_state": 42,
     "training_time_seconds": 51.81469011306763,
     "inference_time_ms": 1.3067677156039281
+  },
+  {
+    "experiment_name": "fake_news_svm",
+    "timestamp": "2025-12-07T11:54:07.362373",
+    "algorithm": "Poly_SVC",
+    "hyperparameters": {
+      "C": 0.076434546995563,
+      "degree": 3,
+      "coef0": 3.5331711445047778
+    },
+    "results": {
+      "test_accuracy": 1.0,
+      "test_f1": 1.0,
+      "best_cv_score": 1.0
+    },
+    "data_info": {
+      "n_train": 29325,
+      "n_test": 9775,
+      "n_features": 50029
+    },
+    "random_state": 42,
+    "training_time_seconds": 63.5857949256897,
+    "inference_time_ms": 1.705378966500757
   }
 ]
