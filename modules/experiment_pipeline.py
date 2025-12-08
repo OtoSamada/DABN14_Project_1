@@ -15,10 +15,7 @@ from sklearn.metrics import accuracy_score, f1_score, classification_report, con
 from modules.track_metadata import ModelMetadata, measure_inference_time
 
 
-# =============================================================================
-# LOGGING CONFIGURATION
-# =============================================================================
-
+# Logging
 def setup_logger(name: str = "experiment_pipeline", level: int = logging.INFO) -> logging.Logger:
     """Setup and return a logger with console handler."""
     logger = logging.getLogger(name)
@@ -42,10 +39,7 @@ def setup_logger(name: str = "experiment_pipeline", level: int = logging.INFO) -
 logger = setup_logger()
 
 
-# =============================================================================
-# CONFIGURATION
-# =============================================================================
-
+# Configuration Dataclass
 @dataclass
 class ExperimentConfig:
     """Configuration for a single SVM experiment."""
@@ -58,10 +52,7 @@ class ExperimentConfig:
     timeout: Optional[int] = None
 
 
-# =============================================================================
-# MODEL CREATION
-# =============================================================================
-
+# Create Models
 def create_model(kernel: str, params: dict, random_state: int = 42):
     """
     Create SVM model with given kernel and parameters.
@@ -78,7 +69,7 @@ def create_model(kernel: str, params: dict, random_state: int = 42):
         return LinearSVC(
             **params,
             max_iter=1000000,
-            tol=1e-4,        # Default tolerance
+            tol=1e-4,
             dual="auto",
             random_state=random_state,
         )
@@ -86,16 +77,13 @@ def create_model(kernel: str, params: dict, random_state: int = 42):
         return SVC(
             kernel=kernel,
             **params,
-            max_iter=-1,     # No limit for SVC (default)
-            tol=1e-3,        # Slightly relaxed tolerancel
+            max_iter=-1,
+            tol=1e-3,
             random_state=random_state,
         )
 
 
-# =============================================================================
-# OPTUNA OPTIMIZATION
-# =============================================================================
-
+# Optuna
 def create_optuna_objective(
     config: ExperimentConfig,
     X_train,
@@ -196,10 +184,7 @@ def run_optuna_optimization(
     return study, optimization_time
 
 
-# =============================================================================
-# MODEL TRAINING & EVALUATION
-# =============================================================================
-
+# Model Training and Evaluation
 def train_model(model, X_train, y_train) -> Tuple[Any, float]:
     """
     Train model and measure training time.
@@ -247,10 +232,6 @@ def evaluate_model(
     return results
 
 
-# =============================================================================
-# SINGLE EXPERIMENT RUNNER
-# =============================================================================
-
 def run_single_experiment(
     config: ExperimentConfig,
     X_train,
@@ -274,25 +255,25 @@ def run_single_experiment(
     logger.info("Kernel: %s | Trials: %d | CV: %d-fold", config.kernel, config.n_trials, config.cv_folds)
     logger.info("=" * 60)
     
-    # 1. Optimize hyperparameters
+    # Optimize hyperparameters
     study, optimization_time = run_optuna_optimization(
         config, X_train, y_train, random_state, n_jobs
     )
     
-    # 2. Create best model
+    # Create best model
     best_model = create_model(config.kernel, study.best_params, random_state)
     
-    # 3. Train
+    # Train
     best_model, training_time = train_model(best_model, X_train, y_train)
     
-    # 4. Evaluate
+    # Evaluate
     eval_results = evaluate_model(best_model, X_test, y_test, class_names)
     
-    # 5. Measure inference time
+    # Measure inference time
     inference_time = measure_inference_time(best_model, X_test)
     logger.info("Inference time: %.4f ms/sample", inference_time)
     
-    # 6. Save model
+    # Save model
     if save_model and models_dir:
         models_dir.mkdir(parents=True, exist_ok=True)
         model_path = models_dir / f"{config.name.lower()}_best.joblib"
@@ -326,10 +307,7 @@ def run_single_experiment(
     return experiment_result
 
 
-# =============================================================================
-# RESULTS & COMPARISON
-# =============================================================================
-
+# Results
 def results_to_dataframe(results: Dict[str, Dict]) -> pd.DataFrame:
     """
     Convert experiment results to a pandas DataFrame.
@@ -413,10 +391,7 @@ def get_best_model(results: Dict[str, Dict], metric: str = "test_f1") -> Tuple[A
     return results[best_name]["model"], best_name
 
 
-# =============================================================================
-# METADATA LOGGING
-# =============================================================================
-
+# Save Model Metadata
 def log_results_to_metadata(
     results: Dict[str, Dict],
     experiment_name: str,
@@ -451,10 +426,7 @@ def log_results_to_metadata(
     return metadata
 
 
-# =============================================================================
-# MAIN PIPELINE
-# =============================================================================
-
+# Complete Experiment Pipeline
 def run_experiment_pipeline(
     X_train,
     y_train,
@@ -519,10 +491,7 @@ def run_experiment_pipeline(
     return results
 
 
-# =============================================================================
-# CONVENIENCE FUNCTIONS
-# =============================================================================
-
+# Helper Functions to Access Results
 def get_model(results: Dict[str, Dict], name: str):
     """Get a specific model by name."""
     if name not in results:

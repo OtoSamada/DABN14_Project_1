@@ -31,7 +31,7 @@ class ModelMetadata:
         data_info: Dict[str, Any],
         random_state: Optional[int] = None,
         training_time_seconds: Optional[float] = None,
-        inference_time_ms: Optional[float] = None,  # Average per sample
+        inference_time_ms: Optional[float] = None,
     ) -> None:
         """Log a single experiment run."""
         record = {
@@ -73,7 +73,7 @@ class ModelMetadata:
             except Exception:
                 existing = []
         
-        # Merge (new overwrites old with same key)
+        # Merge
         merged = {self._key(m): m for m in existing}
         for m in self.metadata_log:
             merged[self._key(m)] = m
